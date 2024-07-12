@@ -3,19 +3,18 @@ using System;
 
 public partial class Coin : Area2D
 {
-	// Called when the node enters the scene tree for the first time.
+	private GameManager _myGameManager;
+	private AnimationPlayer _myAnimationPlayer;
+	
 	public override void _Ready()
 	{
-	}
-
-	// Called every frame. 'delta' is the elapsed time since the previous frame.
-	public override void _Process(double delta)
-	{
+		_myGameManager = GetNode<GameManager>("%GameManager");
+		_myAnimationPlayer = GetNode<AnimationPlayer>("AnimationPlayer");
 	}
 	private void _on_body_entered(Node2D body)
 	{
-		GD.Print("+1 coin!");
-		QueueFree();
+		_myGameManager.AddPoint();
+		_myAnimationPlayer.Play("pickup");
 	}
 }
 
