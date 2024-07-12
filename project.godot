@@ -11,10 +11,13 @@ config_version=5
 [application]
 
 config/name="spacelike"
-run/main_scene="res://node_2d.tscn"
+run/main_scene="res://Sprite.tscn"
 config/features=PackedStringArray("4.2", "C#", "Forward Plus")
-config/icon="res://icon.svg"
 
 [dotnet]
 
 project/assembly_name="spacelike"
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0
